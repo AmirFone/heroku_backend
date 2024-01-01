@@ -11,12 +11,10 @@ ONE_HOUR_MS = 60 * 60 * 1000  # One hour in milliseconds
 SENTENCES_PER_SEGMENT = 4  # Number of sentences per text segment for embedding
 
 # Create directory if it doesn't exist
-nltk_data_dir = '/tmp/nltk_data'
-if not os.path.exists(nltk_data_dir):
-    os.makedirs(nltk_data_dir)
+nltk.data.path.append('/app/nltk_data')
 
 # Download NLTK data
-nltk.download('punkt', download_dir=nltk_data_dir)
+# nltk.download('punkt', download_dir=nltk_data_dir)
 
 # Function to process each audio segment
 def process_segment(model, segment, index, base_filepath):
